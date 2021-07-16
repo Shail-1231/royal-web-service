@@ -3,6 +3,7 @@ package com.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class UserController {
 		return "Get request was sent";
 	}
 
-	@PostMapping
+	@PostMapping("/newuser")
 	public String createUser() {
 		UserBean userBean = new UserBean();
 		userBean.setFirstName("shail");
@@ -35,8 +36,8 @@ public class UserController {
 		return "Post request was sent";
 	}
 
-	@DeleteMapping
-	public String deleteUser() {
+	@DeleteMapping("/:userId")
+	public String deleteUser(@PathVariable("userId") int userId) {
 		return "Delete request was sent";
 	}
 
