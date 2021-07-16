@@ -44,5 +44,10 @@ public class UserController {
 	public String putUser() {
 		return "Put request was sent";
 	}
+	
+	@GetMapping("/demo")
+	public UserBean  getDemo() {
+		return new UserBean();
+	}
 
 }
